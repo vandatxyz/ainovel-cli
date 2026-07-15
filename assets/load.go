@@ -112,11 +112,13 @@ func withSimulationGuidance(prompt, role string) string {
 	return prompt + "\n\n" + strings.ReplaceAll(simulationGuidance, "{{role}}", role)
 }
 
-const simulationGuidance = `## 仿写画像
+const simulationGuidance = `## Chân dung mô phỏng
 
-当 novel_context 返回 simulation_profile 时，必须把它视为当前作品的仿写方向约束。{{role}} 应读取其中的 style、lexicon、plot_design、hook_design、pacing_density、reader_engagement 和 role_guidance。
+⚠️ TẤT CẢ PHẢI BẰNG TIẾNG VIỆT.
 
-使用原则：借鉴结构、节奏、钩子、信息释放和吸引读者的手法；不要复制原文句子、人物、地名、专有设定或固定桥段。若 simulation_profile 与用户显式要求冲突，优先服从用户要求。`
+Khi novel_context trả về simulation_profile, hãy coi nó như định hướng phong cách cho tác phẩm hiện tại. {{role}} nên đọc style, lexicon, plot_design, hook_design, pacing_density, reader_engagement và role_guidance.
+
+Nguyên tắc: học hỏi cấu trúc, nhịp điệu, hook, cách tiết lộ thông tin và thủ pháp thu hút độc giả; KHÔNG copy câu gốc, nhân vật, địa danh, thiết lập riêng hoặc cốt truyện cố định. Nếu simulation_profile mâu thuẫn với yêu cầu tường minh của người dùng, ưu tiên yêu cầu người dùng.`
 
 func loadStyles() map[string]string {
 	styles := make(map[string]string)
